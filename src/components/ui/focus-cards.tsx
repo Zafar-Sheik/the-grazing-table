@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
 /** Aceternity Focus Cards: hovering one card blurs and dims the rest. */
 export function FocusCards({
   cards,
+  columns = 3,
 }: {
   cards: { title: string; src: string; caption?: string }[];
+  columns?: 2 | 3;
 }) {
   const [hovered, setHovered] = useState<number | null>(null);
   return (
-    <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+    <div className={cn("grid grid-cols-1 gap-5", columns === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3")}>
       {cards.map((card, i) => (
         <div
           key={card.src}
@@ -27,7 +29,7 @@ export function FocusCards({
             src={card.src}
             alt={card.title}
             fill
-            sizes="(min-width: 640px) 33vw, 100vw"
+            sizes={columns === 2 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 640px) 33vw, 100vw"}
             className={cn("object-cover transition-transform duration-700", hovered === i && "scale-110")}
           />
           <div

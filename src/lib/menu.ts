@@ -20,7 +20,7 @@ export type CupGroup = {
   items: CupItem[];
 };
 export type CupKind = {
-  key: "signature" | "sweet";
+  key: "signature" | "savoury" | "sweet";
   name: string;
   tagline: string;
   price: number;
@@ -94,6 +94,60 @@ export const CUPS: CupKind[] = [
           { name: "Spicy nuts", color: "#b8652f" },
           { name: "Pretzels", color: "#a5662e" },
           { name: "Choc-wrapped sweets", color: "#6b4226" },
+        ],
+      },
+    ],
+  },
+  {
+    key: "savoury",
+    name: "Savoury Cup",
+    tagline: "Nine bites of cheese, meat, fresh crunch and a sweet-salty finish.",
+    price: 85,
+    count: 9,
+    groups: [
+      {
+        key: "cheese",
+        title: "Cheese",
+        choose: 1,
+        items: [
+          { name: "Cheddar cubes", color: "#e8a33d" },
+          { name: "Gouda cubes", color: "#f2c94c" },
+          { name: "Feta", color: "#f7f3e8" },
+        ],
+      },
+      {
+        key: "classic",
+        title: "Classic Meat",
+        choose: 1,
+        items: [
+          { name: "Salami", color: "#c0504d" },
+          { name: "Cocktail sausages", color: "#c8674b" },
+        ],
+      },
+      {
+        key: "fresh",
+        title: "Fresh & Crunch",
+        choose: 4,
+        items: [
+          { name: "Grapes", color: "#7b2d4a" },
+          { name: "Olives", color: "#4a5a2c" },
+          { name: "Baby tomatoes", color: "#d6452f" },
+          { name: "Cucumber", color: "#8db35e" },
+          { name: "Crackers", color: "#e2c08d" },
+          { name: "Strawberries", color: "#c9303f" },
+          { name: "Gherkins", color: "#6d7f34" },
+        ],
+      },
+      {
+        key: "sweetsavoury",
+        title: "Sweet & Savoury",
+        choose: 3,
+        items: [
+          { name: "Popcorn", color: "#fbe7b0" },
+          { name: "Pretzels", color: "#a5662e" },
+          { name: "Mini marshmallows", color: "#fbe3ea" },
+          { name: "Salted nuts", color: "#c79a5b" },
+          { name: "Sweets (wrapped)", color: "#e0526b" },
         ],
       },
     ],

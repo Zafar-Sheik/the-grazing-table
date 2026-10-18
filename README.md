@@ -8,7 +8,7 @@ hover-effect cards, floating navbar) built on Motion.
 
 ## Features
 
-- **Cup builder** — build a Signature Cup (R90, 9 items) or Sweet Treat Cup (R85, 8 items) and watch the
+- **Cup builder** — build a Signature Cup (R90, 9 items), Savoury Cup (R85, 9 items) or Sweet Treat Cup (R85, 8 items) and watch the
   cup fill layer by layer. Enforces the per-section picks, applies R5 upgrades and the 20-cup minimum.
 - **Grazing boxes** — classic / vegetarian toggle, cheese & meat choices, Medium upgrades and the three
   extras (cheese R40, premium meat R50, dip R25).
@@ -30,5 +30,5 @@ npm run lint
 
 ## Photos
 
-The dessert photos in `public/images` are cropped from the printed price list, so they are low resolution.
+The dessert and savoury cup photos in `public/images` are cropped from the printed price lists, so they are low resolution.
 Swap in the original photos (same filenames) for a sharper gallery.

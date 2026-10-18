@@ -6,6 +6,7 @@ import { CUPS, EXTRAS, MIN_CUPS, rand, type CupKind, type CupItem } from "@/lib/
 import { useBasket } from "@/lib/basket";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "../section-heading";
+import { FocusCards } from "../ui/focus-cards";
 import { Stepper } from "../ui/stepper";
 import { AnimatedRand } from "../ui/animated-number";
 import { CheckIcon, PlusIcon } from "../icons";
@@ -95,7 +96,7 @@ export function CupBuilder() {
 
   return (
     <section id="cups" className="relative px-5 py-28 md:py-36">
-      <SectionHeading eyebrow="Charcuterie & Sweet Cups" title={<>Build your <em className="text-gold-gradient not-italic font-semibold">perfect</em> cup</>}>
+      <SectionHeading eyebrow="Charcuterie Cups" title={<>Build your <em className="text-gold-gradient not-italic font-semibold">perfect</em> cup</>}>
         Pick from each section below and watch your cup come together. Minimum order is {MIN_CUPS} cups.
       </SectionHeading>
 
@@ -108,7 +109,7 @@ export function CupBuilder() {
               type="button"
               onClick={() => setKindKey(c.key)}
               className={cn(
-                "relative z-10 rounded-full px-5 py-3 text-xs tracking-[0.18em] uppercase transition-colors sm:px-8 sm:text-sm",
+                "relative z-10 rounded-full px-4 py-3 text-[11px] tracking-[0.16em] uppercase transition-colors sm:px-7 sm:text-sm",
                 kindKey === c.key ? "text-cream" : "text-cocoa hover:text-ink",
               )}
             >
@@ -119,7 +120,7 @@ export function CupBuilder() {
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
-              {c.name}<span className="hidden sm:inline"> · R{c.price}</span>
+              {c.name.replace(" Cup", "")}<span className="hidden sm:inline"> Cup · R{c.price}</span>
             </button>
           ))}
         </div>
@@ -240,7 +241,7 @@ export function CupBuilder() {
               </p>
               <div className="flex gap-3">
                 {added && (
-                  <button type="button" onClick={() => setOpen(true)} className="rounded-full border border-cocoa/30 px-5 py-3 text-xs tracking-[0.18em] text-cocoa uppercase hover:bg-gold/10">
+                  <button type="button" onClick={() => setOpen(true)} className="whitespace-nowrap rounded-full border border-cocoa/30 px-5 py-3 text-xs tracking-[0.18em] text-cocoa uppercase hover:bg-gold/10">
                     View basket
                   </button>
                 )}
@@ -248,7 +249,7 @@ export function CupBuilder() {
                   type="button"
                   disabled={!complete}
                   onClick={addToBasket}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3 text-xs tracking-[0.18em] text-cream uppercase transition-all hover:bg-cocoa disabled:cursor-not-allowed disabled:bg-ink/25"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-ink px-7 py-3 text-xs tracking-[0.18em] text-cream uppercase transition-all hover:bg-cocoa disabled:cursor-not-allowed disabled:bg-ink/25"
                 >
                   {added ? <CheckIcon className="h-4 w-4" /> : <PlusIcon className="h-4 w-4" />}
                   Add {qty} cups
@@ -258,6 +259,21 @@ export function CupBuilder() {
           </div>
 
           <ExtrasRow />
+        </div>
+      </div>
+
+      <div className="mx-auto mt-24 max-w-4xl">
+        <p data-reveal className="text-center font-display text-lg tracking-[0.25em] text-cocoa uppercase">
+          Our savoury cups
+        </p>
+        <div data-reveal className="mt-8">
+          <FocusCards
+            columns={2}
+            cards={[
+              { title: "Ready for the table", src: "/images/savoury-cup-1.jpg", caption: "Cheese, salami, fresh fruit & crunch" },
+              { title: "Wrapped to go", src: "/images/savoury-cup-2.jpg", caption: "Individually packed for events & gifting" },
+            ]}
+          />
         </div>
       </div>
     </section>
